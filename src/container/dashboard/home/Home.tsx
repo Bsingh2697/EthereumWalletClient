@@ -24,6 +24,7 @@ import {reducer_user} from '../../../redux/slices/userslice';
 import {infuraNetworkConstants} from '../../../Infura/InfuraEndpoints';
 import SwitchNetwork from '../../../components/Modal/NetworkChangeModal/SwitchNetwork';
 import Clipboard from '@react-native-clipboard/clipboard';
+import MiscInfoTabs from './MiscInfo/MiscInfoTabs';
 
 const Home = ({route, navigation}: HomeProp) => {
   // *************************** WEB3 ***************************
@@ -135,7 +136,7 @@ const Home = ({route, navigation}: HomeProp) => {
           style={{
             flex: 1,
             alignItems: 'center',
-            marginTop: 100,
+            marginTop: 80,
           }}>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
@@ -167,6 +168,7 @@ const Home = ({route, navigation}: HomeProp) => {
               </Text>
             </TouchableOpacity>
           </View>
+          <MiscInfoTabs />
         </View>
       </View>
       <SwitchNetwork
