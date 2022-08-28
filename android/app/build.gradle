@@ -1,5 +1,12 @@
 apply plugin: "com.android.application"
 
+project.ext.envConfigFiles = [
+        local: ".env.local",
+        development: ".env.development",
+        production : ".env.production",
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
@@ -141,6 +148,8 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+        flavorDimensions "default"
+        multiDexEnabled true
 
         if (isNewArchitectureEnabled()) {
             // We configure the NDK build only if you decide to opt-in for the New Architecture.
@@ -219,6 +228,17 @@ android {
             enable enableSeparateBuildPerCPUArchitecture
             universalApk false  // If true, also generate a universal APK
             include (*reactNativeArchitectures())
+        }
+    }
+     productFlavors {
+        local{
+            
+        }
+        development {
+
+        }
+        production {
+
         }
     }
     signingConfigs {

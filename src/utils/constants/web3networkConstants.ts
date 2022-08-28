@@ -1,19 +1,17 @@
+import Config from "react-native-config";
+
 const hostNetworks = {
   // Ganache
   GANACHE_HOST: 'HTTP://127.0.0.1:7545',
 
   // Infura NETWORKS
   // Infura MAIN NETWORK
-  MAIN_NET_HOST:
-    'https://mainnet.infura.io/v3/12e531a7fa7d465ca2482825299e977a',
+  MAIN_NET_HOST:`${Config.INFURA_MAIN_NET_URL}${Config.INFURA_KEY}`,
   // Infura TEST NETWORKS
-  RINKBY_NET_HOST:
-    'https://rinkeby.infura.io/v3/12e531a7fa7d465ca2482825299e977a',
-  ROPSTEN_NET_HOST:
-    'https://ropsten.infura.io/v3/12e531a7fa7d465ca2482825299e977a',
-  KOVAN_NET_HOST: 'https://kovan.infura.io/v3/12e531a7fa7d465ca2482825299e977a',
-  GORLI_NET_HOST:
-    'https://goerli.infura.io/v3/12e531a7fa7d465ca2482825299e977a',
+  RINKBY_NET_HOST:`${Config.INFURA_RINKBY_NET_URL}${Config.INFURA_KEY}`,
+  ROPSTEN_NET_HOST:`${Config.INFURA_ROPSTEN_NET_URL}${Config.INFURA_KEY}`,
+  KOVAN_NET_HOST:`${Config.INFURA_KOVAN_NET_URL}${Config.INFURA_KEY}`,
+  GOERLI_NET_HOST:`${Config.INFURA_GOERLI_NET_URL}${Config.INFURA_KEY}`,
 };
 
 const getBaseUrl = (network: string) => {
@@ -34,8 +32,8 @@ const getBaseUrl = (network: string) => {
     case hostNetworks.KOVAN_NET_HOST:
       obj.base_url = hostNetworks.KOVAN_NET_HOST;
       break;
-    case hostNetworks.GORLI_NET_HOST:
-      obj.base_url = hostNetworks.GORLI_NET_HOST;
+    case hostNetworks.GOERLI_NET_HOST:
+      obj.base_url = hostNetworks.GOERLI_NET_HOST;
       break;
   }
   return obj;
@@ -43,5 +41,5 @@ const getBaseUrl = (network: string) => {
 
 export const web3networkConstants = {
   // BASE URL
-  ...getBaseUrl(hostNetworks.RINKBY_NET_HOST),
+  ...getBaseUrl(hostNetworks.GOERLI_NET_HOST),
 };

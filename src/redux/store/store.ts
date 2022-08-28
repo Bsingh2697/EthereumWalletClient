@@ -1,10 +1,14 @@
 import {configureStore} from '@reduxjs/toolkit';
 import logger from 'redux-logger';
+import networkSlice from '../slices/networkSlice';
+import uiSlice from '../slices/uiSlice';
 import userSlice  from '../slices/userslice';
 
 export const store = configureStore({
     reducer:{
-        user : userSlice
+        user : userSlice,
+        ui : uiSlice,
+        network : networkSlice 
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
     enhancers : []

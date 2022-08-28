@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044809611BFD27A36AA82AB9 /* libPods-ethWalletClient-ethWalletClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC137B61B8B5C78133EB7FBB /* libPods-ethWalletClient-ethWalletClientTests.a */; };
 		064552852300455E95BDF316 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84C24C3FAF4F4CA4B1007EFD /* Poppins-Regular.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1CBBC1827B17410089F2FDF3 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55F3045F99D54E0DB241CB26 /* Poppins-Bold.ttf */; };
 		23982AE6C61A411294D27D5A /* NotoSansDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 982A808950D04ED1998354CD /* NotoSansDisplay-Bold.ttf */; };
-		580AE206920DBE0DB6AECBB3 /* libPods-ethWalletClient-ethWalletClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BEB7DADC9F7CBE1934742E /* libPods-ethWalletClient-ethWalletClientTests.a */; };
+		35B26BEA88396848ECA4D88F /* libPods-ethWalletClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D301D21DEB679F6DE73AA5C /* libPods-ethWalletClient.a */; };
 		5AB746D828791DCF000CBE51 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AB746D728791DCF000CBE51 /* Launch Screen.storyboard */; };
 		5AB746E02879BDB9000CBE51 /* ethWalletClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB746DF2879BDB9000CBE51 /* ethWalletClientTests.swift */; };
 		628C8DF2C1B34B65826C3173 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 982A230036DF4C9DA7583BF0 /* Poppins-Thin.ttf */; };
 		80473E2DB69E4DFAA406DF80 /* NotoSansDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62C9FA01198E482990A8FADF /* NotoSansDisplay-Regular.ttf */; };
-		97DDDE00FC83517A0275AB37 /* libPods-ethWalletClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34010839316CC2DB50D88653 /* libPods-ethWalletClient.a */; };
 		B83B93CA1E1B48EB87DFEDBB /* NotoSansDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0413B8051EC46548A2A6533 /* NotoSansDisplay-SemiBold.ttf */; };
 		D8DEC0F8782848EFB3803922 /* NotoSansDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13BF1913BEF34CFA989CE317 /* NotoSansDisplay-Medium.ttf */; };
 		DD0CD65C050747BDB482FEC8 /* NotoSansDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA80CDF890F34F8E89024251 /* NotoSansDisplay-Light.ttf */; };
@@ -39,32 +39,33 @@
 /* Begin PBXFileReference section */
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ethWalletClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ethWalletClientTests.m; sourceTree = "<group>"; };
+		0D301D21DEB679F6DE73AA5C /* libPods-ethWalletClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ethWalletClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* ethWalletClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ethWalletClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ethWalletClient/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ethWalletClient/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ethWalletClient/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ethWalletClient/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ethWalletClient/main.m; sourceTree = "<group>"; };
-		13BF1913BEF34CFA989CE317 /* NotoSansDisplay-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-Medium.ttf"; path = "../src/assets/fonts/NotoSansDisplay-Medium.ttf"; sourceTree = "<group>"; };
-		2DA19DA8A36848CF82CB520D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
-		34010839316CC2DB50D88653 /* libPods-ethWalletClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ethWalletClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		47384FDADA32FBE6F145E72E /* Pods-ethWalletClient-ethWalletClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethWalletClient-ethWalletClientTests.release.xcconfig"; path = "Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests.release.xcconfig"; sourceTree = "<group>"; };
-		55F3045F99D54E0DB241CB26 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		13BF1913BEF34CFA989CE317 /* NotoSansDisplay-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-Medium.ttf"; path = "../src/assets/fonts/NotoSansDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		2B32B7397CB6E8A51D283092 /* Pods-ethWalletClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethWalletClient.release.xcconfig"; path = "Target Support Files/Pods-ethWalletClient/Pods-ethWalletClient.release.xcconfig"; sourceTree = "<group>"; };
+		2DA19DA8A36848CF82CB520D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		55F3045F99D54E0DB241CB26 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		5A91EF02289857D700308EE4 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		5AB746D728791DCF000CBE51 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5AB746DD2879BDB8000CBE51 /* ethWalletClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ethWalletClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AB746DF2879BDB9000CBE51 /* ethWalletClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ethWalletClientTests.swift; sourceTree = "<group>"; };
-		62C9FA01198E482990A8FADF /* NotoSansDisplay-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-Regular.ttf"; path = "../src/assets/fonts/NotoSansDisplay-Regular.ttf"; sourceTree = "<group>"; };
-		75BEB7DADC9F7CBE1934742E /* libPods-ethWalletClient-ethWalletClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ethWalletClient-ethWalletClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		84C24C3FAF4F4CA4B1007EFD /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		982A230036DF4C9DA7583BF0 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
-		982A808950D04ED1998354CD /* NotoSansDisplay-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-Bold.ttf"; path = "../src/assets/fonts/NotoSansDisplay-Bold.ttf"; sourceTree = "<group>"; };
-		B172D77B753B46129E01D5C9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		CE8B6B321A18DC757F047726 /* Pods-ethWalletClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethWalletClient.debug.xcconfig"; path = "Target Support Files/Pods-ethWalletClient/Pods-ethWalletClient.debug.xcconfig"; sourceTree = "<group>"; };
-		D0413B8051EC46548A2A6533 /* NotoSansDisplay-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-SemiBold.ttf"; path = "../src/assets/fonts/NotoSansDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
-		D3FAB3725CD09A9DD354F143 /* Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig"; path = "Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DA80CDF890F34F8E89024251 /* NotoSansDisplay-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-Light.ttf"; path = "../src/assets/fonts/NotoSansDisplay-Light.ttf"; sourceTree = "<group>"; };
+		62C9FA01198E482990A8FADF /* NotoSansDisplay-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-Regular.ttf"; path = "../src/assets/fonts/NotoSansDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		72EE7E78B45E5DC5A715DEA9 /* Pods-ethWalletClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethWalletClient.debug.xcconfig"; path = "Target Support Files/Pods-ethWalletClient/Pods-ethWalletClient.debug.xcconfig"; sourceTree = "<group>"; };
+		84C24C3FAF4F4CA4B1007EFD /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		982A230036DF4C9DA7583BF0 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		982A808950D04ED1998354CD /* NotoSansDisplay-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-Bold.ttf"; path = "../src/assets/fonts/NotoSansDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		B172D77B753B46129E01D5C9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		BEED338F85D744C2EB93C766 /* Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig"; path = "Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE79AF7F188A9AA9039F63C0 /* Pods-ethWalletClient-ethWalletClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethWalletClient-ethWalletClientTests.release.xcconfig"; path = "Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		D0413B8051EC46548A2A6533 /* NotoSansDisplay-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-SemiBold.ttf"; path = "../src/assets/fonts/NotoSansDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
+		DA80CDF890F34F8E89024251 /* NotoSansDisplay-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansDisplay-Light.ttf"; path = "../src/assets/fonts/NotoSansDisplay-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		FE8BA0ADD6BB30A6F583278B /* Pods-ethWalletClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethWalletClient.release.xcconfig"; path = "Target Support Files/Pods-ethWalletClient/Pods-ethWalletClient.release.xcconfig"; sourceTree = "<group>"; };
+		FC137B61B8B5C78133EB7FBB /* libPods-ethWalletClient-ethWalletClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ethWalletClient-ethWalletClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97DDDE00FC83517A0275AB37 /* libPods-ethWalletClient.a in Frameworks */,
+				35B26BEA88396848ECA4D88F /* libPods-ethWalletClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				580AE206920DBE0DB6AECBB3 /* libPods-ethWalletClient-ethWalletClientTests.a in Frameworks */,
+				044809611BFD27A36AA82AB9 /* libPods-ethWalletClient-ethWalletClientTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,8 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				34010839316CC2DB50D88653 /* libPods-ethWalletClient.a */,
-				75BEB7DADC9F7CBE1934742E /* libPods-ethWalletClient-ethWalletClientTests.a */,
+				0D301D21DEB679F6DE73AA5C /* libPods-ethWalletClient.a */,
+				FC137B61B8B5C78133EB7FBB /* libPods-ethWalletClient-ethWalletClientTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,7 +151,6 @@
 				982A230036DF4C9DA7583BF0 /* Poppins-Thin.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -163,6 +163,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				5A91EF02289857D700308EE4 /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* ethWalletClient */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ethWalletClientTests */,
@@ -189,10 +190,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CE8B6B321A18DC757F047726 /* Pods-ethWalletClient.debug.xcconfig */,
-				FE8BA0ADD6BB30A6F583278B /* Pods-ethWalletClient.release.xcconfig */,
-				D3FAB3725CD09A9DD354F143 /* Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig */,
-				47384FDADA32FBE6F145E72E /* Pods-ethWalletClient-ethWalletClientTests.release.xcconfig */,
+				72EE7E78B45E5DC5A715DEA9 /* Pods-ethWalletClient.debug.xcconfig */,
+				2B32B7397CB6E8A51D283092 /* Pods-ethWalletClient.release.xcconfig */,
+				BEED338F85D744C2EB93C766 /* Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig */,
+				CE79AF7F188A9AA9039F63C0 /* Pods-ethWalletClient-ethWalletClientTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -204,14 +205,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ethWalletClient" */;
 			buildPhases = (
-				1C8FFA5395F6EF74893C3770 /* [CP] Check Pods Manifest.lock */,
+				13413173CDBA113DD971EB49 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				4399511C239B9A27DD218BAA /* [CP] Embed Pods Frameworks */,
-				73F4E5854C6BEE7A7DFACA8E /* [CP] Copy Pods Resources */,
+				2CFF77F9D8666504846F0E5C /* [CP] Embed Pods Frameworks */,
+				50ADBA260BFD8C7ED4A8EB22 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,12 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AB746E32879BDB9000CBE51 /* Build configuration list for PBXNativeTarget "ethWalletClientTests" */;
 			buildPhases = (
-				00DD73B9AD1F2B5837DD828C /* [CP] Check Pods Manifest.lock */,
+				71A977E5B06CA4FEE81AF459 /* [CP] Check Pods Manifest.lock */,
 				5AB746D92879BDB8000CBE51 /* Sources */,
 				5AB746DA2879BDB8000CBE51 /* Frameworks */,
 				5AB746DB2879BDB8000CBE51 /* Resources */,
-				2A826AD76F4361EA9B729D8F /* [CP] Embed Pods Frameworks */,
-				A45EC8CCBD751BB2045F40E2 /* [CP] Copy Pods Resources */,
+				5296FF0469D568C747C887B7 /* [CP] Embed Pods Frameworks */,
+				4A5F38178709DACA82AD8802 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,29 +325,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		00DD73B9AD1F2B5837DD828C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ethWalletClient-ethWalletClientTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1C8FFA5395F6EF74893C3770 /* [CP] Check Pods Manifest.lock */ = {
+		13413173CDBA113DD971EB49 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -368,24 +347,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2A826AD76F4361EA9B729D8F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4399511C239B9A27DD218BAA /* [CP] Embed Pods Frameworks */ = {
+		2CFF77F9D8666504846F0E5C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -402,7 +364,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient/Pods-ethWalletClient-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		73F4E5854C6BEE7A7DFACA8E /* [CP] Copy Pods Resources */ = {
+		4A5F38178709DACA82AD8802 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50ADBA260BFD8C7ED4A8EB22 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -419,21 +398,43 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient/Pods-ethWalletClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A45EC8CCBD751BB2045F40E2 /* [CP] Copy Pods Resources */ = {
+		5296FF0469D568C747C887B7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ethWalletClient-ethWalletClientTests/Pods-ethWalletClient-ethWalletClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71A977E5B06CA4FEE81AF459 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ethWalletClient-ethWalletClientTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -488,7 +489,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE8B6B321A18DC757F047726 /* Pods-ethWalletClient.debug.xcconfig */;
+			baseConfigurationReference = 72EE7E78B45E5DC5A715DEA9 /* Pods-ethWalletClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -518,7 +519,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE8BA0ADD6BB30A6F583278B /* Pods-ethWalletClient.release.xcconfig */;
+			baseConfigurationReference = 2B32B7397CB6E8A51D283092 /* Pods-ethWalletClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -546,7 +547,7 @@
 		};
 		5AB746E42879BDB9000CBE51 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3FAB3725CD09A9DD354F143 /* Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig */;
+			baseConfigurationReference = BEED338F85D744C2EB93C766 /* Pods-ethWalletClient-ethWalletClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -578,7 +579,7 @@
 		};
 		5AB746E52879BDB9000CBE51 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47384FDADA32FBE6F145E72E /* Pods-ethWalletClient-ethWalletClientTests.release.xcconfig */;
+			baseConfigurationReference = CE79AF7F188A9AA9039F63C0 /* Pods-ethWalletClient-ethWalletClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -610,6 +611,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A91EF02289857D700308EE4 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -657,7 +659,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -681,6 +683,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A91EF02289857D700308EE4 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -721,7 +724,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -732,6 +735,7 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",

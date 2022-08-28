@@ -1,10 +1,10 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import Web3 from 'web3';
-import {web3networkConstants} from '../../utils/constants/web3networkConstants';
+import {infuraNetworkConstants} from '../../Infura/InfuraEndpoints';
 
 const SigningTransaction = () => {
-  const web3 = new Web3(web3networkConstants.base_url);
+  const web3 = new Web3(infuraNetworkConstants.base_url());
 
   const address1 = '0x034F3ABf8c534C1D4020b422a7582e78253C7758'; //Chrome
   const address2 = '0x28EFD95e52789B7365Ba36B94BE550760a7c5Ca3'; // Morzilla

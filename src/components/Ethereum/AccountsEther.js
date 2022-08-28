@@ -1,10 +1,10 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import Web3 from 'web3';
-import {web3networkConstants} from '../../utils/constants/web3networkConstants';
+import {infuraNetworkConstants} from '../../Infura/InfuraEndpoints';
 
 const Ether = () => {
-  const web3 = new Web3(web3networkConstants.base_url);
+  const web3 = new Web3(infuraNetworkConstants.base_url());
 
   const test = () => {
     console.log('Testing');
@@ -16,7 +16,7 @@ const Ether = () => {
   const checkAddress = () => {
     console.log('Testing 2');
 
-    const web3 = new Web3(web3networkConstants.base_url);
+    const web3 = new Web3(infuraNetworkConstants.base_url());
 
     let res = web3.utils.isAddress(
       '0xa6e69b2ea9802e47407154eda74fa3d515eba5a1',

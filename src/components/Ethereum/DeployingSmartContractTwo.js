@@ -1,10 +1,10 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import Web3 from 'web3';
-import {web3networkConstants} from '../../utils/constants/web3networkConstants';
+import {infuraNetworkConstants} from '../../Infura/InfuraEndpoints';
 
 const DeployingSmartContractTwo = () => {
-  const web3 = new Web3(web3networkConstants.base_url);
+  const web3 = new Web3(infuraNetworkConstants.base_url());
 
   const accountAddress = '0x28EFD95e52789B7365Ba36B94BE550760a7c5Ca3';
   const privateKey =
