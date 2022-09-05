@@ -44,6 +44,7 @@ const Login = ({route, navigation, children}: Props) => {
         leftPress={() => console.log('Left Press')}
         rightBackground={icons.encircle}
         rightIcon={darkTheme() ? icons.cross_white : icons.cross}
+        // rightIcon={icons.cross_white}
         rightPress={() => navigation.goBack()}
         centerBackground={icons.encircle}
         centerIcon={icons.bell}

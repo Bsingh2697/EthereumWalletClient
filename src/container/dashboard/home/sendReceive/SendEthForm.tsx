@@ -57,12 +57,10 @@ type intialState = {
 type props = {
   from?: string;
   submitTansaction: Function;
+  loader: boolean;
 };
 
-const SendEthForm = ({from, submitTansaction}: props) => {
-  // *************************** Use SELECTOR ***************************
-  const loader = useSelector<RootState>(state => state.ui.loader);
-
+const SendEthForm = ({from, submitTansaction, loader}: props) => {
   // *************************** Use Theme ***************************
   const {colors} = useTheme();
   // *************************** Initial Values ***************************
@@ -262,10 +260,10 @@ const SendEthForm = ({from, submitTansaction}: props) => {
                 )
               : null}
             <Pressable
-              onPress={handleSubmit}
+              onPress={() => (loader ? {} : handleSubmit())}
               style={[GLOBAL_STYLES.longButtonBlueStyle, {marginTop: 60}]}>
               {loader ? (
-                <ActivityIndicator size={'small'} />
+                <ActivityIndicator size={'small'} color={COLORS.white} />
               ) : (
                 <Text style={[GLOBAL_STYLES.longButtonBlueTxtSt]}>Send</Text>
               )}

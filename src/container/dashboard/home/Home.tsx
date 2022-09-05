@@ -11,7 +11,7 @@ import React, {useEffect, useState} from 'react';
 import {GLOBAL_STYLES} from '../../../utils/globalStyles';
 import {useDispatch} from 'react-redux';
 import {AppDispatch, RootState} from '../../../redux/store/store';
-import {logoutHandler} from '../../../utils/globalFunctions';
+import {isIos, logoutHandler} from '../../../utils/globalFunctions';
 import {useSelector} from 'react-redux';
 import {keychainData} from '../../../redux/localStorage/localStorage';
 import {appConstants} from '../../../utils/constants/appConstants';
@@ -103,7 +103,11 @@ const Home = ({route, navigation}: HomeProp) => {
           }}>
           <Pressable
             onPress={toggleNetworkModal}
-            style={{alignSelf: 'flex-end', marginBottom: 22}}>
+            style={{
+              alignSelf: 'flex-end',
+              marginBottom: 22,
+              paddingLeft: 30,
+            }}>
             <Image source={icons.more_options} />
           </Pressable>
           <Image source={icons.defaultImage} />
@@ -138,7 +142,11 @@ const Home = ({route, navigation}: HomeProp) => {
             alignItems: 'center',
             marginTop: 80,
           }}>
-          <View style={{flexDirection: 'row'}}>
+          <View
+            style={[
+              {flexDirection: 'row'},
+              isIos() ? {marginTop: 30, marginBottom: 10} : {},
+            ]}>
             <TouchableOpacity
               onPress={() => navigation.navigate('SEND_ETH_SCREEN')}
               style={{alignItems: 'center'}}>

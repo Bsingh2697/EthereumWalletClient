@@ -41,6 +41,7 @@ export type InnerStackParamList = {
   NFT_DETAILS_SCREEN: {nftdata: nftDataType};
   BUY_NFT_SCREEN:undefined,
   SELL_NFT_SCREEN:undefined,
+  FAQ_SCREEN:undefined,
 }
 
 
@@ -61,6 +62,7 @@ export type ProfileProp = NativeStackScreenProps<InnerStackParamList,NAVIGATIONS
 export type NftDetailsProps = NativeStackScreenProps<InnerStackParamList,NAVIGATIONS.NFT_DETAILS_SCREEN>
 export type BuyNftProps = NativeStackScreenProps<InnerStackParamList,NAVIGATIONS.BUY_NFT_SCREEN>
 export type SellNftProps = NativeStackScreenProps<InnerStackParamList,NAVIGATIONS.SELL_NFT_SCREEN>
+export type FaqProps = NativeStackScreenProps<InnerStackParamList,NAVIGATIONS.FAQ_SCREEN>
 
 
 

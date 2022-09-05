@@ -26,6 +26,11 @@ import {AppDispatch} from '../../../../redux/store/store';
 import {useDispatch} from 'react-redux';
 import {fetchPrivateKey} from '../../../../network/requests';
 import CryptoJS from 'react-native-crypto-js';
+import PasswordInputModal from '../../../../components/Modal/PasswordInputModal/PasswordInputModal';
+import TransactionSuccessful from '../../../../components/Modal/SuccessTransaction/TransactionSuccessful';
+import {showToast} from '../../../../libs/ToastConfig';
+import {STRING_CONSTANTS} from '../../../../utils/constants/stringConstants';
+import {ToastType} from '../../../../components/toast/collection';
 
 const MarketplaceAbi = require('../../../../utils/smartContractABIs/MarketplaceAbi.json');
 const MarketplaceAddress = Config.MARKETPLACE_CONTRACT_ADDRESS;
@@ -47,11 +52,23 @@ const NftDetails = ({route, navigation}: NftDetailsProps) => {
   const [loader, setloader] = useState(true);
   const [user, setuser] = useState<reducer_user>();
   const [owned, setowned] = useState<boolean>(false);
+  const [showModal, setshowModal] = useState(false);
+  const [visible, setvisible] = useState(false);
+  const [status, setstatus] = useState<string>();
+  const [seller, setSeller] = useState();
 
   // *************************** Use Effect ***************************
   useEffect(() => {
     setUserData();
   }, []);
+
+  useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        setvisible(false);
+      }, 3000);
+    }
+  }, [visible]);
 
   // *************************** Functions ***************************
   const setUserData = async () => {
@@ -60,17 +77,32 @@ const NftDetails = ({route, navigation}: NftDetailsProps) => {
     setuser(user!);
     console.log('CHECK OWNED  : ', user?.address);
     console.log('CHECK OWNED  : ', nftdata?.seller);
-    if (user?.address == nftdata?.seller) {
-      setowned(true);
-    }
+
+    await contractMethods
+      .getListedForTokenId(nftdata?.tokenId)
+      .call(async (err: any, res: any) => {
+        console.log('RESPONSE : ::  ', res);
+        if (user?.address == res?.seller) {
+          setowned(true);
+        }
+      });
   };
-  const buyNFT = () => {
-    console.log('BUYING');
-    fetchUserKey();
+  // const buyNFT = () => {
+  //   console.log('BUYING');
+  //   fetchUserKey();
+  // };
+
+  // ******************************** BEFORE SUBMIT PROMPT FOR PASSWORD AND DECRYPT THE KEY ********************************
+  const submitHandler = () => {
+    // Alert.alert('Enter your password to confirm transaction');
+    // fetchUserKey();
+    setshowModal(true);
+    setloader(true);
   };
 
   // ******************************** Get Private Key ********************************
   const fetchUserKey = () => {
+    setshowModal(false);
     dispatch(
       fetchPrivateKey(
         (response: any) => {
@@ -133,21 +165,42 @@ const NftDetails = ({route, navigation}: NftDetailsProps) => {
             brodcastTxn.on('error', error => {
               console.log('error :', error);
             });
-            brodcastTxn.on('confirmation', receipt => {
+            brodcastTxn.once('confirmation', receipt => {
               console.log('confirmation :', receipt);
             });
             brodcastTxn.on('receipt', receipt => {
               console.log('Receipt :', receipt);
+              setloader(false);
+              setstatus('Successful');
+              setowned(true);
+              receipt.blockHash ? setvisible(true) : {};
             });
-            brodcastTxn.on('sent', sending => {
-              console.log('sending Receiver:', sending);
+            brodcastTxn.on('sent', sent => {
+              console.log('sent Receiver:', sent);
+              setstatus('Pending...');
             });
             brodcastTxn.on('sending', sending => {
               console.log('sending Receiver:', sending);
             });
+            brodcastTxn.on('error', error => {
+              setstatus('Unsuccessful');
+              showToast(
+                STRING_CONSTANTS.errors.nftbuyerror,
+                STRING_CONSTANTS.errors.nftbuyerrorMsg,
+                ToastType.ERROR,
+              );
+              console.log('error', error);
+            });
           })
           .catch(error => {
             console.log('Error Signing Transaction :', error);
+            setloader(false);
+            setstatus('Unsuccessful');
+            showToast(
+              STRING_CONSTANTS.errors.nftbuyerror,
+              STRING_CONSTANTS.errors.nftbuyerrorMsg,
+              ToastType.ERROR,
+            );
           });
       } catch (errors) {
         console.log('ERROR : ', errors);
@@ -159,9 +212,26 @@ const NftDetails = ({route, navigation}: NftDetailsProps) => {
 
   return (
     <>
+      <PasswordInputModal
+        visible={showModal}
+        onClose={() => (setshowModal(false), setloader(false))}
+        onSubmit={(value: boolean) => {
+          value ? fetchUserKey() : setshowModal(false);
+        }}
+      />
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.cardView}>
+        <TouchableOpacity
+          style={{
+            left: 30,
+            top: 60,
+            position: 'absolute',
+            zIndex: 1,
+          }}
+          onPress={() => navigation.goBack()}>
+          <Image source={icons.white_backarrow} />
+        </TouchableOpacity>
         <View style={styles.imageView}>
           <Image
             style={[styles.imagest, {height: height - 200}]}
@@ -211,7 +281,9 @@ const NftDetails = ({route, navigation}: NftDetailsProps) => {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => (!owned ? buyNFT() : {})}
+              onPress={() =>
+                !owned ? (status == 'Pending...' ? {} : submitHandler()) : {}
+              }
               style={[GLOBAL_STYLES.smallButton, {paddingHorizontal: 30}]}>
               <Text
                 style={[
@@ -222,7 +294,7 @@ const NftDetails = ({route, navigation}: NftDetailsProps) => {
                     textAlignVertical: 'center',
                   },
                 ]}>
-                {!owned ? 'Buy' : 'Owned'}
+                {status == 'Pending...' ? status : !owned ? 'Buy' : 'Owned'}
               </Text>
             </TouchableOpacity>
           </View>
@@ -240,6 +312,10 @@ const NftDetails = ({route, navigation}: NftDetailsProps) => {
           </View>
         </View>
       </ScrollView>
+      <TransactionSuccessful
+        visible={visible}
+        message={'Transaction Successful'}
+      />
     </>
   );
 };

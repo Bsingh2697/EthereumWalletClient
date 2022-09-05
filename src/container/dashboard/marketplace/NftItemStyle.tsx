@@ -84,7 +84,7 @@ const NftItemStyle = ({item, index}: props) => {
 
   return (
     <>
-      {loader ? (
+      {/* {loader ? (
         <>
           <View
             style={[
@@ -95,70 +95,70 @@ const NftItemStyle = ({item, index}: props) => {
             <ActivityIndicator size={'large'} color={COLORS.black} />
           </View>
         </>
-      ) : (
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('NFT_DETAILS_SCREEN', {nftdata: nftData!})
-          }
-          style={[
-            styles.cardView,
-            {width: width / 2 - 40},
-            index % 2 == 0 ? styles.leftItemStyle : styles.rightItemStyle,
-          ]}>
-          <View>
-            <View style={styles.imageView}>
-              <Image
-                resizeMode="cover"
-                style={styles.imagest}
-                source={{uri: nftData?.image}}
-              />
-            </View>
-            <View style={[styles.bodySt]}>
-              <TouchableOpacity
-                //   onPress={}
+      ) : ( */}
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('NFT_DETAILS_SCREEN', {nftdata: nftData!})
+        }
+        style={[
+          styles.cardView,
+          {width: width / 2 - 30},
+          index % 2 == 0 ? styles.leftItemStyle : styles.rightItemStyle,
+        ]}>
+        <View>
+          <View style={styles.imageView}>
+            <Image
+              resizeMode="cover"
+              style={styles.imagest}
+              source={{uri: nftData?.image}}
+            />
+          </View>
+          <View style={[styles.bodySt]}>
+            <TouchableOpacity
+              //   onPress={}
+              style={[
+                {
+                  flexDirection: 'row',
+                  //   paddingHorizontal: 15,
+                  justifyContent: 'flex-start',
+                },
+              ]}>
+              <Image source={icons.ethLogo} />
+              <Text
                 style={[
+                  GLOBAL_STYLES.textPrimaryMedium10,
                   {
-                    flexDirection: 'row',
-                    //   paddingHorizontal: 15,
-                    justifyContent: 'flex-start',
+                    color: COLORS.white,
+                    textAlignVertical: 'center',
+                    includeFontPadding: false,
+                    paddingStart: 5,
                   },
                 ]}>
-                <Image source={icons.ethLogo} />
-                <Text
-                  style={[
-                    GLOBAL_STYLES.textPrimaryMedium10,
-                    {
-                      color: COLORS.white,
-                      textAlignVertical: 'center',
-                      includeFontPadding: false,
-                      paddingStart: 5,
-                    },
-                  ]}>
-                  {parseFloat(
-                    web3.utils.fromWei(
-                      nftData?.price ? nftData?.price : '0',
-                      'ether',
-                    ),
-                  ).toFixed(4) === '0.0000'
-                    ? `${parseFloat(
-                        web3.utils.fromWei(
-                          nftData?.price ? nftData?.price : '0',
-                          'ether',
-                        ),
-                      ).toFixed(3)}..`
-                    : parseFloat(
-                        web3.utils.fromWei(
-                          nftData?.price ? nftData?.price : '0',
-                          'ether',
-                        ),
-                      ).toFixed(4)}{' '}
-                  eth
-                </Text>
-              </TouchableOpacity>
-            </View>
+                {parseFloat(
+                  web3.utils.fromWei(
+                    nftData?.price ? nftData?.price : '0',
+                    'ether',
+                  ),
+                ).toFixed(4) === '0.0000'
+                  ? `${parseFloat(
+                      web3.utils.fromWei(
+                        nftData?.price ? nftData?.price : '0',
+                        'ether',
+                      ),
+                    ).toFixed(3)}..`
+                  : parseFloat(
+                      web3.utils.fromWei(
+                        nftData?.price ? nftData?.price : '0',
+                        'ether',
+                      ),
+                    ).toFixed(4)}{' '}
+                eth
+              </Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-      )}
+        </View>
+      </TouchableOpacity>
+      {/* )} */}
     </>
   );
 };
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     marginEnd: 20,
     marginStart: 10,
     marginTop: 30,
-    marginBottom: 15,
+    marginBottom: 5,
   },
   detailsTop: {
     flexDirection: 'row',
@@ -203,10 +203,10 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   cardView: {
-    marginVertical: 10,
+    marginVertical: 15,
     // flex: 1,
     // marginHorizontal: 20,
-    // borderRadius: 30,
+    borderRadius: 30,
     // borderWidth: 1,
     // overflow: 'hidden',
   },

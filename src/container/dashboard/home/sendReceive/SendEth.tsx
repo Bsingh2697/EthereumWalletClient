@@ -25,6 +25,7 @@ import {
 } from '../../../../components/toast/collection';
 import {useSelector} from 'react-redux';
 import {infuraNetworkConstants} from '../../../../Infura/InfuraEndpoints';
+import TransactionSuccessful from '../../../../components/Modal/SuccessTransaction/TransactionSuccessful';
 
 type transactionSend = {
   to: string;
@@ -37,9 +38,6 @@ type transactionData = transactionSend & {
 };
 
 const SendEth = ({route, navigation}: SendEthProp) => {
-  // *************************** LOADER SELECTOR ***************************
-  const loader = useSelector<RootState>(state => state.ui.loader);
-
   // *************************** WEB3 ***************************
   const web3 = new Web3(infuraNetworkConstants.base_url());
   // *************************** Use State ***************************
@@ -48,12 +46,23 @@ const SendEth = ({route, navigation}: SendEthProp) => {
   const [password, setpassword] = useState<string>();
   const [showModal, setshowModal] = useState(false);
   const [transactionData, setTransactionData] = useState<transactionData>();
+  const [visible, setvisible] = useState(false);
+  const [status, setstatus] = useState<string>();
+  const [loader, setloader] = useState(false);
   // *************************** Dispatch ***************************
   const dispatch = useDispatch<AppDispatch>();
   // *************************** Use Effect ***************************
   useEffect(() => {
     setUserData();
   }, []);
+
+  useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        setvisible(false);
+      }, 3000);
+    }
+  }, [visible]);
 
   // ******************************** Setting User Address ********************************
   const setUserData = async () => {
@@ -67,6 +76,7 @@ const SendEth = ({route, navigation}: SendEthProp) => {
     // fetchUserKey();
     setTransactionData({...values, from: fromValue!});
     setshowModal(true);
+    setloader(true);
   };
 
   const fetchUserKey = () => {
@@ -83,6 +93,7 @@ const SendEth = ({route, navigation}: SendEthProp) => {
         },
         (error: any) => {
           console.log('Error End:', error);
+          setloader(false);
         },
       ),
     );
@@ -120,13 +131,16 @@ const SendEth = ({route, navigation}: SendEthProp) => {
                 'Receipt Receiver:---------------------',
                 receipt.blockHash,
               );
-              showToast(
-                STRING_CONSTANTS.transaction.success,
-                `${web3.utils.fromWei(
-                  transactionData.value,
-                  'ether',
-                )} ether has been successfully transferred to ${receipt.to}`,
-              );
+              setloader(false);
+              setstatus('Successful');
+              receipt.blockHash ? setvisible(true) : {};
+              // showToast(
+              //   STRING_CONSTANTS.transaction.success,
+              //   `${web3.utils.fromWei(
+              //     transactionData.value,
+              //     'ether',
+              //   )} ether has been successfully transferred to ${receipt.to}`,
+              // );
               dispatch(hideLoader());
             });
             broadcastTxn.on('error', err => {
@@ -136,6 +150,7 @@ const SendEth = ({route, navigation}: SendEthProp) => {
                 err.message,
                 ToastType.ERROR,
               );
+              setloader(false);
             });
             broadcastTxn.once('confirmation', confirmed => {
               console.log(
@@ -153,11 +168,17 @@ const SendEth = ({route, navigation}: SendEthProp) => {
                 'SEnt Receiver---------------------:',
                 sent.toString(),
               );
+              setstatus('Pending...');
               showToast(STRING_CONSTANTS.transaction.sent, ' ');
             });
             broadcastTxn.on('sending', sending => {
               console.log('sending Receiver:---------------------', sending);
               showToast(STRING_CONSTANTS.transaction.sending, ' ');
+            });
+            broadcastTxn.on('error', error => {
+              setstatus('Unsuccessful');
+
+              console.log('error', error);
             });
             broadcastTxn.on('transactionHash', transactionHash => {
               console.log(
@@ -173,6 +194,13 @@ const SendEth = ({route, navigation}: SendEthProp) => {
           })
           .catch(err => {
             console.log('ERROR : ', err);
+            setloader(false);
+            setstatus('Unsuccessful');
+            showToast(
+              STRING_CONSTANTS.transaction.error,
+              err.toString(),
+              ToastType.ERROR,
+            );
           });
       } catch (errors) {
         console.log('ERROR : ', errors);
@@ -184,7 +212,7 @@ const SendEth = ({route, navigation}: SendEthProp) => {
     <>
       <PasswordInputModal
         visible={showModal}
-        onClose={() => setshowModal(false)}
+        onClose={() => (setshowModal(false), setloader(false))}
         onSubmit={(value: boolean) => {
           value ? fetchUserKey() : setshowModal(false);
         }}
@@ -208,6 +236,19 @@ const SendEth = ({route, navigation}: SendEthProp) => {
             ]}>
             Send
           </Text>
+          {status ? (
+            <Text
+              style={[
+                GLOBAL_STYLES.textPrimaryMedium12,
+                status == 'Successful'
+                  ? {color: COLORS.green}
+                  : status == 'Unsuccessful'
+                  ? {color: COLORS.red}
+                  : {color: COLORS.gray_shade_three},
+              ]}>
+              {status}
+            </Text>
+          ) : null}
           <View style={styles.inputView}>
             {/* <SendInputField
               label={'From'}
@@ -225,10 +266,18 @@ const SendEth = ({route, navigation}: SendEthProp) => {
               lines={1}
               value={toValue}
             /> */}
-            <SendEthForm from={fromValue} submitTansaction={submitHandler} />
+            <SendEthForm
+              from={fromValue}
+              submitTansaction={submitHandler}
+              loader={loader}
+            />
           </View>
         </View>
       </OuterHeader>
+      <TransactionSuccessful
+        visible={visible}
+        message={'Transaction Successful'}
+      />
     </>
   );
 };

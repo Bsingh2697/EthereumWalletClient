@@ -10,7 +10,7 @@ import {Image} from 'react-native';
 import {GLOBAL_STYLES} from '../utils/globalStyles';
 import Stats from '../container/dashboard/stats/Stats';
 import {COLORS} from '../utils/constants/colors';
-import {darkTheme} from '../utils/globalFunctions';
+import {darkTheme, isIos} from '../utils/globalFunctions';
 
 const InnerTabNavigation = () => {
   const TabNavigator = createBottomTabNavigator<InnerStackParamList>();
@@ -21,7 +21,7 @@ const InnerTabNavigation = () => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          height: 60,
+          height: isIos() ? 70 : 60,
           backgroundColor: darkTheme() ? COLORS.black : COLORS.white,
         },
       }}>

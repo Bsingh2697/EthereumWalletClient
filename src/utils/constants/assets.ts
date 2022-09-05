@@ -40,5 +40,6 @@ export const icons = {
     ethLogo: require('../../assets/icons/ethLogo.png'),
     mpLogo: require('../../assets/icons/mpLogo.png'),
     backgroundmp: require('../../assets/icons/backgroundmp.png'),
-    addNft: require('../../assets/icons/addNft.png')
+    addNft: require('../../assets/icons/addNft.png'),
+    white_backarrow: require('../../assets/icons/white_backarrow.png'),
 }

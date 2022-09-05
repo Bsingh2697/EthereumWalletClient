@@ -104,12 +104,6 @@ const SignUpForm = () => {
   const createEtherAccount = async (): Promise<createEthereumAccount> => {
     const newWallet = web3.eth.accounts.wallet.create(1);
     const newAccount = newWallet[0];
-    console.log('NEW ACCOUNT : ', newAccount);
-    console.log('NEW ACCOUNT PUBLIC KEY Length: ', newAccount.address.length);
-    console.log(
-      'NEW ACCOUNT PRIVATE KEY Length: ',
-      newAccount.privateKey.length,
-    );
     return {address: newAccount.address, privateKey: newAccount.privateKey};
   };
 
@@ -157,7 +151,11 @@ const SignUpForm = () => {
           },
           (error: any) => {
             console.log('ERROR Register END : ', error);
-            showToast(error, ToastType.ERROR);
+            showToast(
+              STRING_CONSTANTS.errors.wentWront,
+              STRING_CONSTANTS.errors.tryDifferentUsername,
+              ToastType.ERROR,
+            );
           },
         ),
       );

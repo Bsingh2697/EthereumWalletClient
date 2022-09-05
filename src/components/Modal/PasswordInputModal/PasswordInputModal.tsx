@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Alert,
   Modal,
@@ -7,6 +7,8 @@ import {
   Pressable,
   View,
   TextInput,
+  TouchableOpacity,
+  BackHandler,
 } from 'react-native';
 import {keychainData} from '../../../redux/localStorage/localStorage';
 import {alpha_black, COLORS} from '../../../utils/constants/colors';
@@ -20,6 +22,21 @@ type props = {
 
 const PasswordInputModal = ({visible, onClose, onSubmit}: props) => {
   const [password, setpassword] = useState<string>();
+  const [error, seterror] = useState(false);
+
+  useEffect(() => {
+    const backAction = () => {
+      seterror(false);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, []);
 
   const handlePasswordSubmit = async () => {
     let user = await keychainData.getUserData();
@@ -28,6 +45,8 @@ const PasswordInputModal = ({visible, onClose, onSubmit}: props) => {
     if (user?.password == password) {
       onSubmit(true);
       setpassword('');
+    } else {
+      seterror(true);
     }
   };
 
@@ -36,21 +55,39 @@ const PasswordInputModal = ({visible, onClose, onSubmit}: props) => {
       animationType="slide"
       transparent={true}
       visible={visible}
-      onRequestClose={() => onClose()}>
-      <View style={styles.centeredView}>
-        <View style={styles.modalView}>
+      onRequestClose={() => (onClose(), seterror(false))}>
+      <TouchableOpacity
+        onPress={() => (onClose(), seterror(false))}
+        style={styles.centeredView}>
+        <Pressable style={styles.modalView}>
           <Text style={[GLOBAL_STYLES.textPrimaryMedium14]}>
             Enter Password
           </Text>
-          <View style={{flexDirection: 'row', marginTop: 10, marginBottom: 20}}>
+          <View style={{flexDirection: 'row', marginTop: 10}}>
             <TextInput
               style={[GLOBAL_STYLES.textPrimaryRegular12, styles.inputSt]}
               value={password}
-              onChangeText={password => setpassword(password)}
+              onChangeText={password => (
+                setpassword(password), seterror(false)
+              )}
               placeholder="Enter Password"
             />
           </View>
-          <Pressable
+          {error ? (
+            <Text
+              style={[
+                GLOBAL_STYLES.textPrimaryRegular12,
+                {
+                  color: COLORS.red,
+                  textAlign: 'left',
+                  alignSelf: 'flex-start',
+                  marginTop: 3,
+                },
+              ]}>
+              Invalid Password!
+            </Text>
+          ) : null}
+          <TouchableOpacity
             style={[styles.button, styles.buttonClose]}
             onPress={() => handlePasswordSubmit()}>
             <Text
@@ -60,9 +97,9 @@ const PasswordInputModal = ({visible, onClose, onSubmit}: props) => {
               ]}>
               Confirm
             </Text>
-          </Pressable>
-        </View>
-      </View>
+          </TouchableOpacity>
+        </Pressable>
+      </TouchableOpacity>
     </Modal>
   );
 };
@@ -99,12 +136,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    zIndex: 10,
   },
   button: {
     borderRadius: 8,
     paddingVertical: 7,
     paddingHorizontal: 10,
     elevation: 2,
+    marginTop: 20,
   },
   buttonClose: {
     backgroundColor: COLORS.btn_blue,

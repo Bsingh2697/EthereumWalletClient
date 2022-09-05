@@ -3,6 +3,7 @@ import React from 'react';
 import {GLOBAL_STYLES} from '../../utils/globalStyles';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {darkTheme} from '../../utils/globalFunctions';
+import {COLORS} from '../../utils/constants/colors';
 
 interface headerProps {
   children: React.ReactElement;

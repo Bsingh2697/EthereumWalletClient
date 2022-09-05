@@ -64,6 +64,16 @@ export const STRING_CONSTANTS = {
        // GENERAL ERROR
        somethingWrong :"Something wrong happened!",
        pleaseTryAgain :"Please try again!",
+       // MISC
+       cannotOpenUrl : "Cannot open link!",
+       errorOpeningUrl: "Sorry, error opening link!",
+
+       // BUY NFT ERROR
+       nftbuyerror:"Error occurred!",
+       nftbuyerrorMsg:"Something went wrong, please try again!",
+       // Signup Existing
+       wentWront : "Something went wrong",
+       tryDifferentUsername:"Try signing up with a different username"
     },
     buttons:{
         done: "Done",

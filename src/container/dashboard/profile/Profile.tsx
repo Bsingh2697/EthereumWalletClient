@@ -1,16 +1,18 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {ImageBackground, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {GLOBAL_STYLES} from '../../../utils/globalStyles';
 import {COLORS} from '../../../utils/constants/colors';
 import {useDispatch} from 'react-redux';
-import {logoutHandler} from '../../../utils/globalFunctions';
+import {isIos, logoutHandler} from '../../../utils/globalFunctions';
 import {AppDispatch} from '../../../redux/store/store';
+import {ProfileProp} from '../../../navigation/types';
+import {icons} from '../../../utils/constants/assets';
 
-const Profile = () => {
+const Profile = ({route, navigation}: ProfileProp) => {
   const dispatch = useDispatch<AppDispatch>();
 
   return (
-    <View style={styles.profileViewSt}>
+    <ImageBackground source={icons.backgroundmp} style={styles.profileViewSt}>
       <View>
         <View style={styles.itemViewSt}>
           <Text
@@ -32,7 +34,9 @@ const Profile = () => {
           </Text>
         </View>
         <View style={styles.dividerSt}></View>
-        <View style={styles.itemViewSt}>
+        <Pressable
+          onPress={() => navigation.navigate('FAQ_SCREEN')}
+          style={styles.itemViewSt}>
           <Text
             style={[
               GLOBAL_STYLES.textPrimaryRegular16,
@@ -40,7 +44,7 @@ const Profile = () => {
             ]}>
             FAQ
           </Text>
-        </View>
+        </Pressable>
         <View style={styles.dividerSt}></View>
         <Pressable
           onPress={() => dispatch(logoutHandler)}
@@ -71,7 +75,7 @@ const Profile = () => {
           Copyright ® 2022 ethWallet. All rights reserved
         </Text>
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -79,7 +83,7 @@ export default Profile;
 
 const styles = StyleSheet.create({
   profileViewSt: {
-    marginTop: 40,
+    paddingTop: isIos() ? 80 : 40,
     paddingHorizontal: 20,
     justifyContent: 'space-between',
     flex: 1,

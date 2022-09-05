@@ -36,5 +36,7 @@ export const COLORS = {
     overlayCard: overlay(40, 84, 245,0.1),
     overlayBtn: overlay(22, 110, 242,0.3),
     theme_color_blue_two:theme_color_blue_two,
-    goerli:'#45A3F3'
+    goerli:'#45A3F3',
+    green:'#71c84a',
+    red:'#dd3125'
 }

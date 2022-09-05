@@ -34,6 +34,7 @@ import {infuraNetworkConstants} from '../../../../Infura/InfuraEndpoints';
 import SellNftForm from './SellNftForm';
 import Config from 'react-native-config';
 import {uploadJSONToIPFS} from '../../../../Pinata/PinataFunctions';
+import TransactionSuccessful from '../../../../components/Modal/SuccessTransaction/TransactionSuccessful';
 
 type sellNftData = {
   name: string;
@@ -59,10 +60,21 @@ const SellNft = ({route, navigation}: SellNftProps) => {
   const [password, setpassword] = useState<string>();
   const [privateKey, setprivateKey] = useState<string>();
   const [loader, setloader] = useState<boolean>(false);
+
+  const [showModal, setshowModal] = useState(false);
+  const [visible, setvisible] = useState(false);
+  const [status, setstatus] = useState<string>();
   // *************************** Use Effect ***************************
   useEffect(() => {
     setUserData();
   }, []);
+  useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        setvisible(false);
+      }, 3000);
+    }
+  }, [visible]);
   // ******************************** Setting User Address ********************************
   const setUserData = async () => {
     let user = await keychainData.getUserData();
@@ -187,17 +199,21 @@ const SellNft = ({route, navigation}: SellNftProps) => {
             broadcastTxn.on('receipt', receipt => {
               console.log('Receipt Receiver:', receipt);
               setloader(false);
-              showToast(
-                STRING_CONSTANTS.toast.uploadToMarketplace,
-                STRING_CONSTANTS.toast.uploadToMarketplaceMsg,
-                ToastType.SUCCESS,
-              );
+              setstatus('Successful');
+              setvisible(true);
+              // showToast(
+              //   STRING_CONSTANTS.toast.uploadToMarketplace,
+              //   STRING_CONSTANTS.toast.uploadToMarketplaceMsg,
+              //   ToastType.SUCCESS,
+              // );
             });
             broadcastTxn.on('error', error => {
+              setstatus('Unsuccessful');
               console.log('Error handle :', error);
             });
             broadcastTxn.on('sent', sending => {
               console.log('sending Receiver:', sending);
+              setstatus('Pending...');
               setloader(true);
             });
             broadcastTxn.on('sending', sending => {
@@ -208,6 +224,7 @@ const SellNft = ({route, navigation}: SellNftProps) => {
             });
           })
           .catch(error => {
+            setstatus('Unsuccessful');
             console.log('Error Signing Transaction :', error);
           });
       } catch (errors) {
@@ -219,32 +236,51 @@ const SellNft = ({route, navigation}: SellNftProps) => {
   };
 
   return (
-    <OuterHeader
-      leftBackground={icons.encircle}
-      leftIcon={icons.outerHeaderLogo}
-      leftPress={() => console.log('Left Press')}
-      rightBackground={icons.encircle}
-      rightIcon={darkTheme() ? icons.cross_white : icons.cross}
-      rightPress={() => navigation.goBack()}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.viewSt}>
-        <Text
-          style={[
-            GLOBAL_STYLES.textPrimaryMedium24,
-            GLOBAL_STYLES.textunderline,
-            {
-              letterSpacing: 1,
-              color: darkTheme() ? COLORS.white : COLORS.heading_label_color,
-            },
-          ]}>
-          Sell
-        </Text>
-        <View style={styles.inputView}>
-          <SellNftForm submitTansaction={submitHandler} />
-        </View>
-      </ScrollView>
-    </OuterHeader>
+    <>
+      <OuterHeader
+        leftBackground={icons.encircle}
+        leftIcon={icons.outerHeaderLogo}
+        leftPress={() => console.log('Left Press')}
+        rightBackground={icons.encircle}
+        rightIcon={darkTheme() ? icons.cross_white : icons.cross}
+        rightPress={() => navigation.goBack()}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.viewSt}>
+          <Text
+            style={[
+              GLOBAL_STYLES.textPrimaryMedium24,
+              GLOBAL_STYLES.textunderline,
+              {
+                letterSpacing: 1,
+                color: darkTheme() ? COLORS.white : COLORS.heading_label_color,
+              },
+            ]}>
+            Sell
+          </Text>
+          {status ? (
+            <Text
+              style={[
+                GLOBAL_STYLES.textPrimaryMedium12,
+                status == 'Successful'
+                  ? {color: COLORS.green}
+                  : status == 'Unsuccessful'
+                  ? {color: COLORS.red}
+                  : {color: COLORS.gray_shade_three},
+              ]}>
+              {status}
+            </Text>
+          ) : null}
+          <View style={styles.inputView}>
+            <SellNftForm submitTansaction={submitHandler} loader={loader} />
+          </View>
+        </ScrollView>
+      </OuterHeader>
+      <TransactionSuccessful
+        visible={visible}
+        message={'NFT Uploaded Successfully!'}
+      />
+    </>
   );
 };
 

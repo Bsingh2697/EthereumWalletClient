@@ -10,6 +10,7 @@ import ReceiveEth from '../container/dashboard/home/sendReceive/ReceiveEth';
 import NftDetails from '../container/dashboard/marketplace/nftDetails/NftDetails';
 import BuyNft from '../container/dashboard/marketplace/marketOperations/BuyNft';
 import SellNft from '../container/dashboard/marketplace/marketOperations/SellNft';
+import FAQ from '../container/dashboard/profile/FAQ';
 
 const InnerNavigation = () => {
   const InnerNavigator = createNativeStackNavigator<InnerStackParamList>();
@@ -39,6 +40,7 @@ const InnerNavigation = () => {
         name={NAVIGATIONS.SELL_NFT_SCREEN}
         component={SellNft}
       />
+      <InnerNavigator.Screen name={NAVIGATIONS.FAQ_SCREEN} component={FAQ} />
     </InnerNavigator.Navigator>
   );
 };

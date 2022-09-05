@@ -24,6 +24,7 @@ import {etherScanNetwork} from './src/Etherscan/constants/escanNetwork';
 import {infuraNetworkConstants} from './src/Infura/InfuraEndpoints';
 import TokenContract from './src/components/Ethereum/TokenContract';
 import MarketplaceContract from './src/components/Ethereum/MarketplaceContract';
+import axios, {AxiosRequestConfig} from 'axios';
 
 const App = () => {
   useEffect(() => {

@@ -11,7 +11,11 @@ import {
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {COLORS} from '../../utils/constants/colors';
-import {darkTheme, isIos} from '../../utils/globalFunctions';
+import {
+  darkTheme,
+  elevationShadowStyle,
+  isIos,
+} from '../../utils/globalFunctions';
 import {GLOBAL_STYLES} from '../../utils/globalStyles';
 import {fonts} from '../../utils/constants/fonts';
 import {useTheme} from '@react-navigation/native';
@@ -49,10 +53,12 @@ const OuterHeader = ({
 }: headerProps) => {
   const {width, height} = Dimensions.get('window');
   const {colors} = useTheme();
+
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.safeAreaSt}>
       <View
         style={[
+          elevationShadowStyle(2),
           styles.headerView,
           isIos() ? {} : {paddingTop: 20},
           {backgroundColor: colors.background},
@@ -120,7 +126,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     alignItems: 'center',
     borderBottomColor: COLORS.common_divider_color,
-    borderBottomWidth: 0.2,
+    // borderBottomWidth: 0.2,
   },
   pressableLeftSt: {
     flex: 1,

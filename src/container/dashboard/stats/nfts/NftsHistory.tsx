@@ -7,6 +7,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   Alert,
+  useWindowDimensions,
 } from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {GLOBAL_STYLES} from '../../../../utils/globalStyles';
@@ -19,11 +20,14 @@ import {COLORS} from '../../../../utils/constants/colors';
 import {icons} from '../../../../utils/constants/assets';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../../../redux/store/store';
+import LottieView from 'lottie-react-native';
 
 const MarketplaceAbi = require('../../../../utils/smartContractABIs/MarketplaceAbi.json');
 const MarketplaceAddress = Config.MARKETPLACE_CONTRACT_ADDRESS;
 
 const NftsHistory = () => {
+  const {width, height} = useWindowDimensions();
+
   // *************************** USE SELECTOR ***************************
 
   const user = useSelector((state: RootState) => state.user.user_data);
@@ -61,6 +65,7 @@ const NftsHistory = () => {
       source={icons.backgroundmp}
       style={styles.marketplaceView}>
       <FlatList
+        contentContainerStyle={{flexGrow: 1}}
         showsVerticalScrollIndicator={false}
         data={nftsList}
         numColumns={2}
@@ -68,6 +73,28 @@ const NftsHistory = () => {
           <NftItemStyle item={item} index={index} />
         )}
         extraData={nftsList}
+        ListEmptyComponent={() => (
+          <View
+            style={{
+              height: '100%',
+              width: '100%',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <LottieView
+              source={{
+                uri: 'https://assets2.lottiefiles.com/private_files/lf30_iyicd2xy.json',
+              }}
+              autoPlay
+              loop
+              style={{
+                height: 250,
+                width: 250,
+                // marginLeft: -(width - width / 2),
+              }}
+            />
+          </View>
+        )}
       />
     </ImageBackground>
   );

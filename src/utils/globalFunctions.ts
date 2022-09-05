@@ -2,6 +2,7 @@ import { Appearance, Platform } from "react-native";
 import { keychainData } from "../redux/localStorage/localStorage";
 import { removeUserData } from "../redux/slices/userslice";
 import { appConstants } from "./constants/appConstants";
+import { COLORS } from "./constants/colors";
 
 export const isNotEmptyText = (text: any) => {
 	return text ? true : false;
@@ -18,8 +19,9 @@ export const objToFormData = (rawData: any) => {
 };
 
 export const darkTheme = () : boolean => {
-	if (Appearance.getColorScheme() == 'dark' )
-		return true
+	if (Appearance.getColorScheme() == 'dark' ){
+		return true;
+	}
 	return false
 }
 
@@ -39,5 +41,14 @@ export const logoutHandler = async(dispatch: Function) => {
 	dispatch(removeUserData())
 	console.log(("LOGOUT DBA DIYA BHAI"));
 	// console.log("CHeck2",storageInstance.getString(appConstants.token_data));
-	
 }
+
+export const elevationShadowStyle = (elevation: any) => {
+    return {
+      elevation,
+      shadowColor: COLORS.black_overlay_med,
+      shadowOffset: {width: 0, height: 0.8 * elevation},
+      shadowOpacity: 0.5,
+      shadowRadius: 0.8 * elevation,
+    };
+  };

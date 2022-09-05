@@ -7,6 +7,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   Alert,
+  useWindowDimensions,
 } from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {GLOBAL_STYLES} from '../../../utils/globalStyles';
@@ -18,13 +19,15 @@ import {COLORS} from '../../../utils/constants/colors';
 import {icons} from '../../../utils/constants/assets';
 import LinearGradient from 'react-native-linear-gradient';
 import {MarketplaceProp} from '../../../navigation/types';
+import LottieView from 'lottie-react-native';
+import {isIos} from '../../../utils/globalFunctions';
 
 const MarketplaceAbi = require('../../../utils/smartContractABIs/MarketplaceAbi.json');
 const MarketplaceAddress = Config.MARKETPLACE_CONTRACT_ADDRESS;
 
 const Marketplace = ({route, navigation}: MarketplaceProp) => {
   // *************************** Constants ***************************
-
+  const {width, height} = useWindowDimensions();
   const web3 = new Web3(infuraNetworkConstants.base_url());
   const contract = new web3.eth.Contract(MarketplaceAbi, MarketplaceAddress);
   const contractMethods = contract.methods;
@@ -56,19 +59,37 @@ const Marketplace = ({route, navigation}: MarketplaceProp) => {
       <View
         style={{
           alignItems: 'center',
-          alignSelf: 'center',
+          // alignSelf: 'center',
           justifyContent: 'center',
-          borderBottomWidth: 1,
-          borderBottomColor: COLORS.gray_shade_two,
-          marginTop: 10,
-          marginBottom: 10,
+          // borderBottomWidth: 1,
+          // borderBottomColor: COLORS.gray_shade_two,
+          width: width + 20,
+          marginLeft: -10,
+          marginTop: isIos() ? 30 : -10,
+          // marginBottom: 10,
+          flexDirection: 'row',
+          marginHorizontal: 20,
+          elevation: 3,
+          shadowColor: COLORS.black,
+          shadowOffset: {
+            width: 0,
+            height: 3,
+          },
+          paddingVertical: 10,
         }}>
-        <Image source={icons.mpLogo} />
+        <LottieView
+          source={{
+            uri: 'https://assets1.lottiefiles.com/packages/lf20_bgdnu64h.json',
+          }}
+          autoPlay
+          loop
+          style={{height: 70, width: 70}}
+        />
         <Text
           style={[
             GLOBAL_STYLES.textPrimaryMedium24,
             {
-              lineHeight: 36,
+              marginTop: 10,
               color: COLORS.gray_shade_two,
             },
           ]}>
@@ -77,12 +98,35 @@ const Marketplace = ({route, navigation}: MarketplaceProp) => {
       </View>
       <FlatList
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          flexGrow: 1,
+          // alignItems: 'center',
+          paddingTop: 10,
+        }}
         data={nftsList}
         numColumns={2}
         renderItem={({item, index}) => (
           <NftItemStyle item={item} index={index} />
         )}
         extraData={nftsList}
+        ListEmptyComponent={() => (
+          <View
+            style={{
+              height: '100%',
+              width: '100%',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <LottieView
+              source={{
+                uri: 'https://assets4.lottiefiles.com/packages/lf20_zpdtmajt.json',
+              }}
+              autoPlay
+              loop
+              style={{height: 250, width: 250}}
+            />
+          </View>
+        )}
       />
       <TouchableOpacity onPress={() => navigation.navigate('SELL_NFT_SCREEN')}>
         <LinearGradient

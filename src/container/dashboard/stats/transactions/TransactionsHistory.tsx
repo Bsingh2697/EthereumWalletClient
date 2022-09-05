@@ -13,6 +13,7 @@ import {showToast} from '../../../../libs/ToastConfig';
 import {STRING_CONSTANTS} from '../../../../utils/constants/stringConstants';
 import {ToastType} from '../../../../components/toast/collection';
 import TransactionItem from './TransactionItem';
+import LottieView from 'lottie-react-native';
 
 const TransactionsHistory = () => {
   // *************************** USE SELECTOR ***************************
@@ -94,15 +95,37 @@ const TransactionsHistory = () => {
     );
   };
   return (
-    <View>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={transactionsList}
-        renderItem={({item}) => <TransactionItem item={item} />}
-        onEndReached={() => fetchtransactions()}
-        onEndReachedThreshold={0.3}
-      />
-    </View>
+    <FlatList
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{flexGrow: 1}}
+      data={transactionsList}
+      renderItem={({item}) => <TransactionItem item={item} />}
+      onEndReached={() => fetchtransactions()}
+      onEndReachedThreshold={0.3}
+      // getItemLayout={(data, index) => ({
+      //   length: 200,
+      //   offset: 200 * index,
+      //   index,
+      // })}
+      ListEmptyComponent={() => (
+        <View
+          style={{
+            height: '100%',
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <LottieView
+            source={{
+              uri: 'https://lottie.host/1f6bb126-2afa-484a-a818-ed23f82369bc/aBuXMOwQby.json',
+            }}
+            autoPlay
+            loop
+            style={{height: 200, width: 200}}
+          />
+        </View>
+      )}
+    />
   );
 };
 

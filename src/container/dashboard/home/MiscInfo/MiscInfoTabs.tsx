@@ -52,7 +52,6 @@ const MiscInfoTabs = () => {
               height: 35,
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor: COLORS.white_overlay_med,
               top: -1,
             }}>
             <Text
@@ -69,6 +68,7 @@ const MiscInfoTabs = () => {
               height: 35,
               alignItems: 'center',
               justifyContent: 'center',
+              backgroundColor: COLORS.white_overlay_med,
               // left: -45,
               width: (width - 40) / 2,
               top: -1,

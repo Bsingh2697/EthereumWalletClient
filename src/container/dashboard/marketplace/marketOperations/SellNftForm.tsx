@@ -30,7 +30,7 @@ import {STRING_CONSTANTS} from '../../../../utils/constants/stringConstants';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {COLORS} from '../../../../utils/constants/colors';
 import OuterHeader from '../../../../components/headers/OuterHeader';
-import {darkTheme} from '../../../../utils/globalFunctions';
+import {darkTheme, isIos} from '../../../../utils/globalFunctions';
 import {useDispatch} from 'react-redux';
 import {object, string} from 'yup';
 import {Formik} from 'formik';
@@ -66,12 +66,11 @@ type intialState = {
 
 type props = {
   submitTansaction: Function;
+  loader: boolean;
 };
 
-const SellNftForm = ({submitTansaction}: props) => {
+const SellNftForm = ({submitTansaction, loader}: props) => {
   const web3 = new Web3(`${Config.INFURA_GOERLI_NET_URL}${Config.INFURA_KEY}`);
-  // *************************** Use SELECTOR ***************************
-  const loader = useSelector<RootState>(state => state.ui.loader);
 
   // *************************** Use SELECTOR ***************************
   const [nftUrl, setnftUrl] = useState<string>(); // FROM DEVICE
@@ -168,12 +167,14 @@ const SellNftForm = ({submitTansaction}: props) => {
         () => {
           DocumentPicker.pickSingle({
             type: [DocumentPicker.types.allFiles],
+            copyTo: 'cachesDirectory',
           })
             .then(res => {
               console.log('RESPONSE UPLOADER:', res);
-
+              let finalres = res.fileCopyUri!;
+              finalres = finalres.replace('file://', '');
               RNFetchBlob.fs
-                .stat(res.uri)
+                .stat(isIos() ? finalres : res.uri)
                 .then(async stats => {
                   console.log('STATS : ', stats);
                   let str1 = 'file://';
@@ -356,10 +357,13 @@ const SellNftForm = ({submitTansaction}: props) => {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={handleSubmit}
-              style={[GLOBAL_STYLES.longButtonBlueStyle, {marginTop: 60}]}>
+              onPress={() => (loader ? {} : handleSubmit())}
+              style={[
+                GLOBAL_STYLES.longButtonBlueStyle,
+                {marginTop: 60, height: 50},
+              ]}>
               {loader ? (
-                <ActivityIndicator size={'small'} />
+                <ActivityIndicator size={'small'} color={COLORS.white} />
               ) : (
                 <Text style={[GLOBAL_STYLES.longButtonBlueTxtSt]}>
                   List NFT
